@@ -2,10 +2,10 @@
 
 REMOTE_RPC="https://aztec-rpc.cerberusnode.com"
 
-# Check if any app is running on port 8080
-if lsof -i :8080 >/dev/null 2>&1; then
-  echo "✅ Detected app running on port 8080"
-  PORT=8080
+# Check if any app is running on port 9000
+if lsof -i :9000 >/dev/null 2>&1; then
+  echo "✅ Detected app running on port 9000"
+  PORT=9000
 else
   read -p "⚠️ No app found on port 8080. Please enter your local Aztec RPC port: " PORT
 fi
