@@ -164,7 +164,7 @@ setup_firewall_ports() {
             echo -e "${YELLOW}Opening ports for Aztec Sequencer...${NC}"
             sudo ufw allow 40400/tcp comment 'Aztec Sequencer TCP' 2>/dev/null || true
             sudo ufw allow 40400/udp comment 'Aztec Sequencer UDP' 2>/dev/null || true
-            sudo ufw allow 8080/tcp comment 'Aztec Sequencer API' 2>/dev/null || true
+            sudo ufw allow 8081/tcp comment 'Aztec Sequencer API' 2>/dev/null || true
             ;;
         "geth")
             echo -e "${YELLOW}Opening ports for Geth...${NC}"
@@ -359,7 +359,7 @@ services:
     ports:
       - 40400:40400/tcp
       - 40400:40400/udp
-      - 8080:8080
+      - 8081:8081
     volumes:
       - ./data:/root/.aztec
     network_mode: host
@@ -506,7 +506,7 @@ check_status() {
     
     # Check Aztec Sequencer sync status (block tips)
     echo -e "\n${BLUE}Aztec Sequencer Sync Status:${NC}"
-    LOCAL_AZTEC_PORT=8080
+    LOCAL_AZTEC_PORT=8081
     LOCAL_AZTEC_RPC="http://localhost:$LOCAL_AZTEC_PORT"
     REMOTE_AZTEC_RPC="https://aztec-rpc.cerberusnode.com"
 
